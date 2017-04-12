@@ -11,12 +11,13 @@ class AddPirateForm extends Component {
       vessel: this.vessel.value,
       weapon: this.weapon.value
     }
-    console.log(pirate)
+    this.props.addPirate(pirate)
+    this.pirateForm.reset()
   }
 
   render(){
     return (
-      <form onSubmit={ (e) => this.createPirate(e) }>
+      <form ref={(input)=> this.pirateForm = input } onSubmit={ (e) => this.createPirate(e) }>
       <input ref={(input) => this.name = input } type="text" placeholder="Pirate name" />
       <input ref={(input) => this.vessel = input } type="text" placeholder="Pirate vessel" />
       <input ref={(input) => this.weapon = input } type="text" placeholder="Pirate weapon" />
